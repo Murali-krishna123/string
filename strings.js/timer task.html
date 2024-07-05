@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<style>
+    
+.timer1{
+    font-size: 48px;
+    display: block;
+    text-align: center;
+    padding:20px;
+    border:1px solid#ffff;   
+    margin: 40px out;
+    border:black;
+    border-radius: 50px;
+}
+.parent{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 100vh;
+    background-color: bisque;
+    box-shadow: 0px 0px 10px #ff00f2,0px 0px 10px #ff00f2 inset;
+    border:2px solid #ff00f2;
+    
+}
+.child{
+    box-shadow: 0px 0px 10px #ff00f2,0px 0px 10px #ff00f2 inset;
+    border:2px solid #ff00f2;
+    height:100px;
+    width:100px;
+}
+.button1{
+    color: lightblue;
+}
+ button{
+    color: lightsalmon;
+ }
+</style>
+<body>
+    <div clas="child">
+    <div class="button1">
+    <div class="parent">
+    <div class="timer1">
+    <div id="myh1">00:00:00 </div>
+    <button onclick="starttime()">start</button>
+    <button onclick="pause()">pause</button>
+    <button onclick="reset()">reset</button> 
+    </div>
+    </div>
+    </div>
+    </div> 
+   <script>
+    var hrs=0;
+    var mins=0;
+    var sec=0;
+    var mytime;
+    var ptime;
+    function gettime(){
+        document.getElementById("myh1").innerHTML=hrs+":"+mins+":"+sec;       
+        sec++
+        if(sec>60){
+            sec=0;
+            mins++
+        if(mins>60) {
+            mins=0;
+            hrs++
+            if(hrs==24){
+                hrs=0;
+            }
+        }
+    }       
+    }
+    function starttime(){
+        mytime=setInterval(gettime,1000);
+    }
+    function pause(){
+        ptime=clearInterval(mytime);
+    }
+    function reset(){
+        hrs=0
+        mins=0
+        sec=0
+        document.getElementById("myh1").innerHTML=hrs+":"+mins+":"+sec;
+    }
+   </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .samesize{
+      inline-size: auto;
+      height: 150px;
+      width:200px;
+      border:none;
+      margin:0;
+      padding:0;
+    }
+  </style>
+  <body>
+    <div class="table-container"></div>
+    <script>
+      const data = [
+        {
+          id: 1,
+          quote:
+            "Life isn’t about getting and having, it’s about giving and being.",
+          author: "Kevin Kruse",
+          imgurl:
+            `<img src="https://history.princeton.edu/sites/g/files/toruqf5351/files/styles/freeform_750w/public/Barros_190918_123.jpg?itok=ZA_-zsv4" class ="samesize">`
+        },
+        {
+          id: 2,
+          quote:
+            "Whatever the mind of man can conceive and believe, it can achieve.",
+          author: "Napoleon Hill",
+          imgurl:
+           `<img src= "https://www.toolshero.com/wp-content/uploads/2016/10/napoleon-hill-biography-toolshero.jpg" class="samesize">`
+        },
+
+        {
+          id: 3,
+          quote: "Strive not to be a success, but rather to be of value.",
+          author: "Albert Einstein",
+          imgurl:
+           `<img src= "https://hips.hearstapps.com/hmg-prod/images/gettyimages-3091504.jpg"class="samesize">`
+        },
+        {
+          id: 4,
+          quote:
+            "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
+          author: "Robert Frost",
+          imgurl:
+           `<img src= "https://hips.hearstapps.com/hmg-prod/images/gettyimages-82587359.jpg" class="samesize">`
+        },
+        {
+          id: 5,
+          quote:
+            "I attribute my success to this: I never gave or took any excuse.",
+          author: "Florence Nightingale",
+          imgurl:
+           `<img src= "https://upload.wikimedia.org/wikipedia/commons/a/ab/Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg" class="samesize">`
+          },
+      ];
+      let table = `<table>`;
+      function generateTable(data) {
+        table += (
+          `<tr>
+            <th>id</th>
+            <th>quote</th>
+            <th>author</th>
+            <th>imgurl</th>
+          </tr>`
+        );
+        data.forEach((item) => {
+          table += (
+            `<tr>
+              <td>${item.id}</td>
+              <td>${item.quote}</td>
+              <td>${item.author}</td>
+              <td>${item.imgurl}</td>
+            </tr>`
+          )
+        })
+        table += `</table>`;
+        return table;
+      }
+      document.querySelector(`.table-container`).innerHTML =generateTable(data);
+        
+    </script>
+  </body>
+</html>
